@@ -486,6 +486,19 @@ class APK(object):
         """
         return self.get_elements("provider", "name")
 
+    def get_meta_datas(self):
+        l = []
+        
+        for i in self.xml:
+            for item in self.xml[i].getElementsByTagName("meta-data"):
+                name = item.getAttributeNS(NS_ANDROID_URI, "name")
+                value = item.getAttributeNS(NS_ANDROID_URI, "value")
+                d = {}
+                d['name'] = name
+                d['value'] = value
+                l.append(d)
+        return l
+
     def get_intent_filters(self, category, name):
         d = {}
 
