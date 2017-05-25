@@ -740,6 +740,7 @@ class APK(object):
             with open(os.path.join(pkg_name_path, icon_name), 'w+b') as icon_file:
                 icon_file.write(data)
         print "APK ICON in: %s" % pkg_name_path
+        return os.path.join(pkg_name_path, icon_name)
 
 
 def show_Certificate(cert):
